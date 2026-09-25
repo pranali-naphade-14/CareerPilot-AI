@@ -38,7 +38,12 @@ const registerUser = async (req,res)=>{
             {expiresIn : "30d"}
         )
 
-        res.cookie("token",token)
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: "none",
+            maxAge: 30 * 24 * 60 * 60 * 1000
+        });
 
         res.status(201).json({
             message:"User Registered Successfully",
@@ -89,7 +94,12 @@ const loginUser= async (req,res)=>{
             {expiresIn:"30d"}
         )
 
-        res.cookie("token",token)
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: "none",
+            maxAge: 30 * 24 * 60 * 60 * 1000
+        });
 
         res.status(200).json({
             message:"Login Successful",
