@@ -1,51 +1,58 @@
-import axios from "axios"
+import axios from "axios";
 
-export const register = async({username, email, password})=>{
-    try{
-        const response = await axios.post('http://localhost:3000/auth/register', {username,email,password},
-            {withCredentials:true}
-        )
+const API_URL = "https://careerpilot-ai-76g9.onrender.com";
 
-        return response.data
+export const register = async ({ username, email, password }) => {
+    try {
+        const response = await axios.post(
+            `${API_URL}/auth/register`,
+            { username, email, password },
+            { withCredentials: true }
+        );
+
+        return response.data;
+    } catch (err) {
+        console.log(err);
     }
-    catch(err){
-        console.log(err)
-    }
-}
+};
 
-export const login = async({email, password})=>{
-    try{
-        const response = await axios.post('http://localhost:3000/auth/login', {email,password},
-            {withCredentials:true}
-        )
+export const login = async ({ email, password }) => {
+    try {
+        const response = await axios.post(
+            `${API_URL}/auth/login`,
+            { email, password },
+            { withCredentials: true }
+        );
 
-        return response.data
-    }
-    catch(err){
-        console.log(err)
+        return response.data;
+    } catch (err) {
+        console.log(err);
         throw err;
     }
-}
+};
 
-export const logout = async ()=>{
-    try{
-        const response = await axios.get("http://localhost:3000/auth/logout" , {withCredentials:true})
+export const logout = async () => {
+    try {
+        const response = await axios.get(
+            `${API_URL}/auth/logout`,
+            { withCredentials: true }
+        );
 
-        return response.data
+        return response.data;
+    } catch (err) {
+        console.log(err);
     }
-    catch(err){
-        console.log(err)
-    }
-}
+};
 
-export const getMe = async ()=>{
-    try{
-        const response = await axios.get("http://localhost:3000/auth/get-me" , {withCredentials:true})
+export const getMe = async () => {
+    try {
+        const response = await axios.get(
+            `${API_URL}/auth/get-me`,
+            { withCredentials: true }
+        );
 
-        return response.data
+        return response.data;
+    } catch (err) {
+        console.log(err);
     }
-    catch(err){
-        console.log(err)
-    }
-     
-}
+};
