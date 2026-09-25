@@ -1,9 +1,9 @@
 import {createBrowserRouter} from "react-router";
 import Login from "./features/authentication/pages/Login.jsx";
 import Register from "./features/authentication/pages/Register.jsx";
-import Protected from "./features/authentication/components/protected.jsx";
+import Protected from "./features/authentication/components/Protected.jsx";
 import Home from "./features/ai/pages/Home.jsx";
-import Interview from "./features/ai/pages/interview.jsx";
+import Interview from "./features/ai/pages/Interview.jsx";
 
 export const router=createBrowserRouter([
     {
